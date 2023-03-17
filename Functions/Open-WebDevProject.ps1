@@ -1,4 +1,4 @@
-function Open-Project {
+function Open-WebDevProject {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
