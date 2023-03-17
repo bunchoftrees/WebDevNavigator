@@ -1,18 +1,15 @@
 function Get-WebDevProjects {
-    $projectsFile = "$PSScriptRoot\projects.json"
-    if (!(Test-Path $projectsFile)) {
-        New-Item -ItemType File $projectsFile | Out-Null
-        @() | ConvertTo-Json | Set-Content -Path $projectsFile
+    $projectsFile = "$env:LOCALAPPDATA\WebDevNavigator\projects.json"
+    if (!(Test-Path $env:LOCALAPPDATA\WebDevNavigator)) {
+        New-Item -ItemType Directory $env:LOCALAPPDATA\WebDevNavigator | Out-Null
     }
-
-    $projects = Get-Content $projectsFile -Raw | ConvertFrom-Json
-    if (!$projects) {
-        $projects = @()
-    } elseif (-not $projects -is [System.Collections.ArrayList]) {
-        $projects = [System.Collections.ArrayList]($projects)
+    if (Test-Path $projectsFile) {
+        $projects = Get-Content $projectsFile -Raw | ConvertFrom-Json
+        return $projects
     }
-
-    return $projects
+    else {
+        return $null
+    }
 }
 
 Export-ModuleMember -Function Get-WebDevProjects

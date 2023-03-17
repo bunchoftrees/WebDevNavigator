@@ -8,7 +8,7 @@ function Open-WebDevProject {
         [switch]$Code
     )
 
-    $project = Get-Projects | Where-Object { $_.Name -eq $ProjectName }
+    $project = Get-WebDevProjects | Where-Object { $_.Name -eq $ProjectName }
     if (!$project) {
         Write-Host "Project '$ProjectName' not found."
         return
