@@ -14,3 +14,5 @@ function Get-WebDevProjects {
 
     return $projects
 }
+
+Export-ModuleMember -Function Get-WebDevProjects

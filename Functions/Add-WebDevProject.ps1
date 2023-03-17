@@ -30,3 +30,5 @@ function Add-WebDevProject {
     Write-Host "Project '$Name' added successfully."
     Get-WebDevProjects | Format-Table -AutoSize
 }
+
+Export-ModuleMember -Function Add-WebDevProject

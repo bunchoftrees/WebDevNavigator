@@ -44,3 +44,5 @@ function Open-Project {
 
     Set-Location $project.DevPath
 }
+
+Export-ModuleMember -Function Open-WebDevProject
