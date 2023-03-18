@@ -47,8 +47,21 @@ To navigate to a project's development or local web directory in PowerShell, use
 
 By default, using `Open-WebDevProject -ProjectName "My Project"` will `Set-Location` to the project's development directory.
 
-Using the `-Local` switch will navigate to the project's IIS directory in PowerShell. You can also include `-Code` and/or `-Explore` when using this switch. 
+Using the `-Local` switch will navigate to the project's IIS directory in PowerShell. You can also include `-Code` or `-Explore` when using this switch. 
+
+### Removing a Project
+To remove a project from the list of tracked projects, use the Remove-WebDevProject command with the project name:
+
+`Remove-WebDevProject -Name "My Project"`
+
+This will remove the project from the list of tracked projects.
+
+If you want to remove all tracked projects without confirmation, use the -Clean switch:
+
+`Remove-WebDevProject -Clean`
+
+You can also add the `-Force` flag with `-Clean`. Note that this will delete the projects file without prompting for confirmation. Use with caution.
 
 Contributions
 -------------
-Contributions are welcome! If you have a feature request, bug report, or would like to contribute code, feel free to create a pull request on GitHub.
+Contributions are welcome! If you have a feature request, bug report, or would like to contribute code, feel free to create a pull request on [GitHub](https://github.com/bunchoftrees/WebDevNavigator).
