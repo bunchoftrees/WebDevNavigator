@@ -1,6 +1,12 @@
 #Requires -RunAsAdministrator
 
-Import-Module (Join-Path $PSScriptRoot 'Functions\Add-WebDevProject.ps1')
-Import-Module (Join-Path $PSScriptRoot 'Functions\Get-WebDevProjects.ps1')
-Import-Module (Join-Path $PSScriptRoot 'Functions\Open-WebDevProject.ps1')
-Import-Module (Join-Path $PSScriptRoot 'Functions\Remove-WebDevProject.ps1')
+$FunctionsPath = Join-Path $PSScriptRoot 'Functions'
+
+Import-Module (Join-Path $FunctionsPath 'Add-WebDevProject.ps1')
+Import-Module (Join-Path $FunctionsPath 'Get-WebDevProjects.ps1')
+Import-Module (Join-Path $FunctionsPath 'Open-WebDevProject.ps1')
+Import-Module (Join-Path $FunctionsPath 'Remove-WebDevProject.ps1')
+Import-Module (Join-Path $FunctionsPath 'Invoke-NantInit.ps1')
+Import-Module (Join-Path $FunctionsPath 'Restart-WebDevProject.ps1')
+Import-Module (Join-Path $FunctionsPath 'Import-WebDevProjects.ps1')
+Import-Module (Join-Path $FunctionsPath 'Export-WebDevProjects.ps1')
