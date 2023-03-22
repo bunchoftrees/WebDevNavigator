@@ -15,18 +15,18 @@ function Open-WebDevProject {
     }
 
     if ($Local -and !$Code -and !$Explore) {
-        Set-Location $project.WebPath
+        Set-Location "C:\inetpub\wwwroot$($project.WebPath)"
         return
     }
 
     if ($Local -and $Code) {
-        Set-Location $project.WebPath
+        Set-Location "C:\inetpub\wwwroot$($project.WebPath)"
         Start-Process -NoNewWindow "code" .
         return
     }
 
     if ($Local -and $Explore) {
-        Set-Location $project.WebPath
+        Set-Location "C:\inetpub\wwwroot$($project.WebPath)"
         Start-Process .
         return
     }
