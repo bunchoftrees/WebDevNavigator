@@ -6,7 +6,9 @@ function Add-WebDevProject {
         [Parameter(Mandatory=$true)]
         [string]$WebPath,
         [Parameter(Mandatory=$true)]
-        [string]$DevPath
+        [string]$DevPath,
+        [Parameter(Mandatory=$true)]
+        [string]$NodeVersion
     )
 
     $projects = Get-WebDevProjects -DisplayMessage $false
@@ -19,9 +21,10 @@ function Add-WebDevProject {
         Name = $Name
         DevPath = $DevPath
         WebPath = $WebPath
+        NodeVersion = $NodeVersion
     }
 
-    $projects = @($projects) + @($newProject | Select-Object Name, DevPath, WebPath)
+    $projects = @($projects) + @($newProject | Select-Object Name, DevPath, WebPath, NodeVersion)
     $projects | ConvertTo-Json -Depth 100 | Set-Content -Path "$env:LOCALAPPDATA\WebDevNavigator\projects.json"
     Write-Host "Project '$Name' added successfully." -ForegroundColor Green
     Get-WebDevProjects | Format-Table -AutoSize

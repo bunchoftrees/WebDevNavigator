@@ -34,6 +34,4 @@ function Restart-WebDevProject {
     Start-Website $siteName
 }
 
-
-
 Export-ModuleMember -Function Restart-WebDevProject
